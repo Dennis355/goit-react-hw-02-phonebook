@@ -2,6 +2,15 @@
   display: block;
   padding-inline-start: 5px;
 }
+.phonebook_contacts_block {
+  display: block;
+}
+
+.div_phonebook_full {
+  display: block;
+  width: min-content;
+  height: min-content;
+}
 
 .contact_li {
   display: flex;
@@ -18,7 +27,6 @@
   min-height: content;
   font-size: 18px;
   min-width: 150px;
-  
 }
 .contact_number {
   display: inline-block;

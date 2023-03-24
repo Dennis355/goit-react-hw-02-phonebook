@@ -1,10 +1,10 @@
-import css from 'components/Pfonebook_1/PhonebookFull.module.css';
-
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
-import { ContactList } from 'components/Pfonebook_1/ContactList';
-import PhoneForm from 'components/Pfonebook_1/PhoneForm';
-import { Filter } from 'components/Pfonebook_1/filter';
+
+import { ContactList } from 'components/ContactList/ContactList';
+import PhoneForm from 'components/PhoneForm/PhoneForm';
+import { Filter } from 'components/Filter/filter';
+import css from 'components/PhonebookStart.module.css';
 
 export class App extends Component {
   state = {
@@ -19,7 +19,6 @@ export class App extends Component {
       { id: 'id-8', name: 'Regina Cobra', number: '25-96-25' },
       { id: 'id-9', name: 'Edena Kliente-Cobra', number: '125-96-25' },
     ],
-
     filter: '',
   };
 
@@ -35,11 +34,11 @@ export class App extends Component {
       alert(`${name} is already in contacts.`);
       return;
     }
-
     this.setState(prevState => ({
       contacts: [...prevState.contacts, contact],
     }));
   };
+
   getVisiblefilter = () => {
     const { filter, contacts } = this.state;
     const normalizeFilter = filter.toLowerCase();
@@ -60,22 +59,17 @@ export class App extends Component {
 
   render() {
     const { filter } = this.state;
-
     const visiblefilter = this.getVisiblefilter();
 
     return (
-      <div className={css.div_phonebook_full}>
-        <section className={css.section_phonenumber}>
-          <PhoneForm onSubmit={this.addContact} />
-        </section>
+      <div className={css.phonebook_contacts_block}>
+        <PhoneForm onSubmit={this.addContact} />
         <h2 className={css.phonebook_title_h2}> Contacts</h2>{' '}
         <Filter value={filter} onChange={this.changeFilter} />
-        <div className={css.phonebook_contacts_block}>
-          <ContactList
-            contacts={visiblefilter}
-            onDeleteContact={this.deleteContact}
-          />
-        </div>
+        <ContactList
+          contacts={visiblefilter}
+          onDeleteContact={this.deleteContact}
+        />
       </div>
     );
   }

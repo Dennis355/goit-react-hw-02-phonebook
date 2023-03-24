@@ -6,7 +6,6 @@
 .phonebook_title {
   display: block;
 }
-
 .phonebook_block_title {
   display: block;
   font-size: 28px;
@@ -21,7 +20,6 @@
   margin-top: 0;
   margin-bottom: 0;
 }
-
 .phonebook_btn_addcontact {
   display: block;
   margin-top: 15px;
@@ -32,15 +30,15 @@
   background: green;
   cursor: pointer;
 }
-
+.phonebook_contacts_block {
+  display: block;
+}
 .phonebook_contacts {
   display: block;
 }
-
 .div_counter_feedback {
   display: flex;
   flex-direction: row;
-
   align-items: center;
   padding: 10px;
   border: 1px solid #ccc;
